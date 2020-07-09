@@ -28,8 +28,8 @@ class GPR(object):
         X = transform_data(x)
         K_s = self.__kernel(self.__X_train, X)
         K_ss = self.__kernel(X, X)
-        mu_s = np.dot(np.dot(K_s.T, self.__K_inv).block_until_ready(), self.__Y_train).block_until_ready()
-        cov_s = K_ss - np.dot(np.dot(K_s.T, self.__K_inv), K_s).block_until_ready()
+        mu_s = np.dot(np.dot(K_s.T, self.__K_inv), self.__Y_train)
+        cov_s = K_ss - np.dot(np.dot(K_s.T, self.__K_inv), K_s)
 
         if return_std and return_cov:
             raise RuntimeError(
