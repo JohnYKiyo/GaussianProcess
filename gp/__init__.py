@@ -1,3 +1,3 @@
-__all__=['acquisition','kernel','metric','utils']
+__all__=['kernel','metric','utils']
 from .GPR import GPR
 from . import *
