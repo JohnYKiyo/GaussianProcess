@@ -3,7 +3,8 @@ import jax
 import jax.numpy as np
 from jax import jit
 
-from ..metric import euclid_distance, pairwise
+from ..metric import euclid_distance
+from ..utils import pairwise
 from .base_kernel import BaseKernel
 
 @jit

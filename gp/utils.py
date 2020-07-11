@@ -2,6 +2,7 @@ from jax.config import config; config.update("jax_enable_x64", True)
 import jax
 import jax.numpy as np
 from jax import vmap,jit
+from functools import partial
 
 @jit
 def transform_data(x):
@@ -20,3 +21,10 @@ def data_checker(X,Y):
     '''N_data check'''
     if len(X) != len(Y):
         raise ValueError('X,Y should be same number of data. (n,d),(n,)')
+
+def pairwise(dist,**kwargs):
+    '''
+    d_ij = dist(X_i , Y_j)
+    "i,j" are assumed to indicate the data index.
+    '''
+    return jit(vmap(vmap(partial(dist,**kwargs),in_axes=(None,0)),in_axes=(0,None)))
