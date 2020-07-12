@@ -14,14 +14,15 @@ class GPR(object):
         data_checker(self.__X_train,self.__Y_train)
 
         self.__kernel = kwargs.pop('kernel',GaussianRBFKernel(h=1.0,a=1.0))
-        self.__alpha = kwargs.pop('alpha',1e-6)
+        self.__alpha = kwargs.pop('alpha',0)
+        self.__jitter = 1e-6
         self.__kwargs = kwargs
 
         self.__compute_gram_matrix()
 
     def __compute_gram_matrix(self):
         self.__K = self.__kernel(self.__X_train, self.__X_train) +\
-            self.__alpha * np.eye(len(self.__X_train))
+            (self.__alpha+self.__jitter) * np.eye(len(self.__X_train))
         self.__K_inv = np.linalg.inv(self.__K)
 
     def posterior_predictive(self,x,return_std=False,return_cov=False): 
