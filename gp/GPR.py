@@ -68,13 +68,3 @@ class GPR(object):
     @property
     def kernel(self):
         return self.__kernel
-
-'''
-bayesopt.GP(X_train,Y_train,kernel=partial(bayesopt.kernel.gaussian_rbf,h=2,a=2))
-
-hoge = bayesopt.metric.pairwise(bayesopt.kernel.euclid_distance,square=True)
-def kernel(x,y):
-    return bayesopt.kernel.gaussian_rbf(x,y)+np.exp(1*np.cos(np.sqrt(hoge(x,y))/1.))+np.dot(x,y.T)
-
-bayesopt.GP(X_train,Y_train,kernel=kernel)
-'''
