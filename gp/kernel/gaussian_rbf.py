@@ -10,8 +10,8 @@ from .base_kernel import BaseKernel
 @jit
 def gaussian_rbf(x1, x2, h=1.0, a=1.0):
     # distance between each rows
-    dist = pairwise(euclid_distance,square=True)
-    return a / np.sqrt(2 * np.pi * h**2) * np.exp(-0.5*dist(x1,x2) / h**2)
+    dists = pairwise(euclid_distance,square=True)
+    return a / np.sqrt(2 * np.pi * h**2) * np.exp(-0.5*dists(x1,x2) / h**2)
 
 class GaussianRBFKernel(BaseKernel):
     def __init__(self,h=1.0,a=1.0,*args,**kwargs):
