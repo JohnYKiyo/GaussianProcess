@@ -1,4 +1,23 @@
 # Gaussian Process Regression
+## 1\. Overview
+
+## 2\. Installation
+
+You can install the package from
+[GitHub](https://github.com/JohnYKiyo/GaussianProcess)
+
+``` :sh
+$ pip install git+https://github.com/JohnYKiyo/GaussianProcess.git
+
+```
+
+Or install manualy
+
+``` :sh
+$ git clone https://github.com/JohnYKiyo/GaussianProcess.git
+$ cd GaussianProcess
+$ python setup.py install
+```
 
 ## Dependencies
 
