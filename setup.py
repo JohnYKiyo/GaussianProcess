@@ -11,9 +11,8 @@ def _requires_from_file(filename):
 with open("README.md", "r") as f:
     long_description = f.read()
 
-print(find_packages("gp"))
 setup(
-    name="gaussianprocess",
+    name="GaussianProcess",
     version="0.5.0",
     license="MIT License",
     description="A Python Package for Gaussian Process Regression.",
@@ -24,8 +23,8 @@ setup(
     url="https://github.com/JohnYKiyo/GaussianProcess",
     keywords='gaussian process',
     python_requires=">=3.6.0",
-    packages = [s.replace('gp','gaussianprocess') for s in find_packages('.')],
-    package_dir={"gaussianprocess": "gp"},
+    packages = [s.replace('gp','GaussianProcess') for s in find_packages('.')],
+    package_dir={"GaussianProcess": "gp"},
     py_modules=[splitext(basename(path))[0] for path in glob('gp/*.py')],
     install_requires=[
         'jax>=0.1.57',
