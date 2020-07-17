@@ -1,3 +1,3 @@
-__all__=['kernel','metric','utils']
-from .GPR import GPR
+__all__=['kernel','metric','utils','GPR']
 from . import *
+from .GPR import GPR
