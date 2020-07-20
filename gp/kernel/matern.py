@@ -56,7 +56,7 @@ def matern(x,y, l=1., nu=1.5):
         return K_other(x,y,l,nu)
 
 class MaternKernel(BaseKernel):
-    def __init__(self, a=1.0, l=1.0, nu=1.0, *args,**kwargs):
+    def __init__(self, a=1.0, l=1.0, nu=1.5, *args,**kwargs):
         self.__a = a
         self.__l = l
         self.__nu = nu
